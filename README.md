@@ -54,13 +54,13 @@ using Smartsheet.Api.Models;
 static void Sample()
 {
     // Initialize client
-    SmartsheetClient ss = new SmartsheetBuilder()
+    SmartsheetClient smartsheet = new SmartsheetBuilder()
         // TODO: Set your API access in environment variable SMARTSHEET_ACCESS_TOKEN or else here
         // .SetAccessToken("ll352u9jujauoqz4gstvsae05")
         .Build();
 
     // List all sheets
-    PaginatedResult<Sheet> sheets = ss.SheetResources.ListSheets(
+    PaginatedResult<Sheet> sheets = smartsheet.SheetResources.ListSheets(
         null,               // IEnumerable<SheetInclusion> includes
         null,               // PaginationParameters
         null                // Nullable<DateTime> modifiedSince = null
@@ -74,7 +74,7 @@ static void Sample()
     Console.WriteLine("Loading sheet id: " + sheetId);
 
     // Load the entire sheet
-    var sheet = ss.SheetResources.GetSheet(
+    var sheet = smartsheet.SheetResources.GetSheet(
         5670346721388420,           // long sheetId
         null,                       // IEnumerable<SheetLevelInclusion> includes
         null,                       // IEnumerable<SheetLevelExclusion> excludes
@@ -99,6 +99,14 @@ The generated SDK class documentation is here: [http://smartsheet-platform.githu
 
 ## Contributing
 If you would like to contribute a change to the SDK, please fork a branch and then submit a pull request. [More info here.](https://help.github.com/articles/using-pull-requests)
+
+## Version Numbers
+Starting from the v2.68.0 release, Smartsheet SDKs will use a new versioning strategy. Since all users are on the 
+Smartsheet API 2.0, the SDK version numbers will start with 2. The 2nd number will be an internal reference number.
+The 3rd number is for incremental changes.
+
+For example, v2.68.0 means that you are using our 2.0 version of the API, the API is synced internally to a tag of 68,
+and then if there are numbers after the last decimal, that will indicate a minor change.
 
 ## Support
 If you have any questions or issues with this SDK please post on [StackOverflow using the tag "smartsheet-api"](http://stackoverflow.com/questions/tagged/smartsheet-api) or contact us directly at api@smartsheet.com.

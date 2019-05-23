@@ -23,11 +23,40 @@ using System.Text;
 
 namespace Smartsheet.Api.Models
 {
-    class ContactObjectValue : Contact, ObjectValue
+    public class ContactObjectValue : Contact, ObjectValue
     {
+        /// <summary>
+        /// Part of the ContactOverlay, if contactReferences is present in the sheet, refIndex will indicate
+        /// the offset into the list containing this Contact
+        /// </summary>
+        private int? refIndex;
+
+        /// <summary>
+        /// ID of the contact image
+        /// </summary>
+        private string imageId;
+
         public ObjectValueType ObjectType
         {
             get { return ObjectValueType.CONTACT; }
+        }
+
+        /// <summary>
+        /// Gets the offset in the contactReferences for this Contact
+        /// </summary>
+        public int? RefIndex
+        {
+            get { return refIndex; }
+            set { refIndex = value; }
+        }
+
+        /// <summary>
+        /// Gets the ID for the contact image
+        /// </summary>
+        public string ImageId
+        {
+            get { return imageId; }
+            set { imageId = value; }
         }
     }
 }

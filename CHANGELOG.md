@@ -6,6 +6,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.68.1] - 2019-5-15
+### Fixed
+- Added missing public class declarations for some of the ObjectValue types
+
+## [2.68.0] - 2019-5-13
+### Added
+- Implement Event Reporting
+
+## [2.6.0] - 2019-1-31
+### Added
+- Added group inclusion to GetCurrentUser
+- Added BASE URI definition for Smartsheetgov
+
+### Fixed
+- Fixed GetRow to process include and exclude parameters
+
+## [2.5.0] - 2018-12-11
+### Added
+- Added opt-in for TLS 1.2. TLS 1.0 will be disabled soon for Smartsheet API.
+
+## [2.4.0] - 2018-11-28
+### Added
+- WebContent as a valid widget type for Sights
+- Missing Workspace item to Sheet model
+- Support for Multi-Assign feature
+- deleteAllForApiClient parameter to OAuth revoke
+
+### Changed
+- ProjectSettings nonWorkingDays should be a string (modified from DateTime)
+
 ## [2.3.0] - 2018-04-18
 ### Added
 - [Automation rules](http://smartsheet-platform.github.io/api-docs/?shell#automation-rules)
